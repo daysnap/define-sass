@@ -1,0 +1,52 @@
+@use "sass:map";
+
+// 断点映射
+$breakpoints: (
+  "sm": 640px,
+  "md": 768px,
+  "lg": 1024px,
+  "xl": 1280px,
+  "2xl": 1536px,
+);
+
+@mixin screen($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media screen and (min-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin sm() {
+  @include screen("sm") {
+    @content;
+  }
+}
+
+@mixin md() {
+  @include screen("md") {
+    @content;
+  }
+}
+
+@mixin lg() {
+  @include screen("lg") {
+    @content;
+  }
+}
+
+@mixin xl() {
+  @include screen("xl") {
+    @content;
+  }
+}
+
+@mixin xxl() {
+  @include screen("xxl") {
+    @content;
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "@daysnap/define-sass",
-  "version": "0.0.22",
+  "version": "0.0.23",
   "description": "sass define",
   "scripts": {
     "release": "dsc publish -t",
@@ -27,7 +27,7 @@
     ".": "./src/index.scss",
     "./reset": "./src/reset.scss",
     "./transition": "./src/transition.scss",
-    "./*": "./src/*"
+    "./*": "./*"
   },
   "author": "woshiajuana",
   "license": "MIT",

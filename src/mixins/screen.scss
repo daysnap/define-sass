@@ -6,7 +6,7 @@ $breakpoints: (
   "md": 768px,
   "lg": 1024px,
   "xl": 1280px,
-  "2xl": 1536px,
+  "xxl": 1536px,
 );
 
 @mixin screen($breakpoint) {
@@ -47,6 +47,48 @@ $breakpoints: (
 
 @mixin xxl() {
   @include screen("xxl") {
+    @content;
+  }
+}
+
+@mixin max-screen($breakpoint) {
+  @if map.has-key($breakpoints, $breakpoint) {
+    @media screen and (max-width: map.get($breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media screen and (max-width: $breakpoint) {
+      @content;
+    }
+  }
+}
+
+@mixin max-sm() {
+  @include max-screen("sm") {
+    @content;
+  }
+}
+
+@mixin max-md() {
+  @include max-screen("md") {
+    @content;
+  }
+}
+
+@mixin max-lg() {
+  @include max-screen("lg") {
+    @content;
+  }
+}
+
+@mixin max-xl() {
+  @include max-screen("xl") {
+    @content;
+  }
+}
+
+@mixin max-xxl() {
+  @include max-screen("xxl") {
     @content;
   }
 }
